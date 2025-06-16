@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XSplashed | Premium Adult Talent Platform</title>
+  <meta name="description" content="Trusted platform connecting adult performers with premium production opportunities">
+  <style>
+    :root {
+      --primary: #ff4d8d;
+      --primary-dark: #e60073;
+      --primary-light: #ff85b2;
+      --secondary: #6a5acd;
+      --secondary-light: #9388db;
+      --light: #f8f9fa;
+      --dark: #1a1a1a;
+      --gray: #2d2d2d;
+      --light-pink: #fff0f6;
+      --light-blue: #f0f8ff;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      background-color: #fafafa;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 6rem 1rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" opacity="0.05"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="white"/></svg>');
+      background-size: 100px 100px;
+      mix-blend-mode: overlay;
+    }
+    
+    header h1 {
+      font-size: 3rem;
+      margin: 0 0 0.5rem;
+      font-weight: 800;
+      position: relative;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-block;
+      background: white;
+      color: var(--primary-dark);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      position: relative;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      margin-left: 1rem;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      color: var(--dark);
+    }
+    
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card h2 {
+      color: var(--primary);
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .card h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary-light);
+    }
+    
+    .card ul {
+      padding-left: 1.2rem;
+      margin: 0;
+    }
+    
+    .card li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .card li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .testimonials {
+      background-color: var(--light-pink);
+    }
+
+    .testimonial p {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .testimonial p::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -0.5rem;
+      font-size: 3rem;
+      color: var(--primary-light);
+      opacity: 0.3;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+      font-style: normal;
+    }
+
+    .faq {
+      background-color: var(--light-blue);
+    }
+
+    .faq-item {
+      margin-bottom: 2rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .faq-item p {
+      margin: 0;
+      line-height: 1.7;
+    }
+    
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .stat {
+      text-align: center;
+      min-width: 120px;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 0.3rem;
+      background: linear-gradient(to right, white, #f8f8f8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+    }
+
+    .process-number {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+      box-shadow: 0 4px 8px rgba(106, 90, 205, 0.2);
+    }
+
+    .process-content {
+      flex-grow: 1;
+    }
+
+    .process-content h3 {
+      margin: 0 0 0.5rem;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    .process-content p {
+      margin: 0;
+      color: var(--gray);
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 3rem;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 3rem;
+      box-shadow: 0 10px 30px rgba(106, 90, 205, 0.2);
+    }
+
+    .cta-box h2 {
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    .cta-box p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+    
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      position: relative;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+    
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      line-height: 1.6;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 4rem 1rem 3rem;
+      }
+      
+      header h1 {
+        font-size: 2.4rem;
+      }
+      
+      .section {
+        padding: 3rem 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .btn-secondary {
+        margin-left: 0;
+        margin-top: 1rem;
+        display: block;
+      }
+
+      .process-step {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .cta-box {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="animate">XSplashed</h1>
+      <p class="animate delay-1">Professional platform connecting adult performers with premium production opportunities</p>
+      <div style="margin-top: 2rem;">
+        <a href="#apply" class="btn animate delay-1">Apply Now <i class="fas fa-arrow-right"></i></a>
+        <a href="#learn-more" class="btn btn-secondary animate delay-2">Learn More</a>
+      </div>
+      
+      <div class="stats animate delay-2">
+        <div class="stat">
+          <div class="stat-number">2,500+</div>
+          <div class="stat-label">Talents Placed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">300+</div>
+          <div class="stat-label">Verified Studios</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section" id="learn-more">
+      <h2 class="section-title">Why Join XSplashed</h2>
+      <div class="grid">
+        <div class="card animate">
+          <h2>Premium Opportunities</h2>
+          <ul>
+            <li>Access to high-budget productions paying 25-50% above industry standard</li>
+            <li>Professional working conditions with regulated hours and breaks</li>
+            <li>Creative collaborations with top directors and producers</li>
+            <li>Residual payments for content distributed across platforms</li>
+            <li>Exclusive invitations to international productions</li>
+          </ul>
+        </div>
+        
+        <div class="card animate delay-1">
+          <h2>Talent Protection</h2>
+          <ul>
+            <li>Transparent contracts reviewed by entertainment attorneys</li>
+            <li>Mandatory 48-hour testing protocols for all productions</li>
+            <li>Boundary enforcement with professional intimacy coordinators</li>
+            <li>24/7 support line for any on-set concerns</li>
+            <li>Legal protection against unauthorized content distribution</li>
+          </ul>
+        </div>
+        
+        <div class="card animate delay-2">
+          <h2>Career Growth</h2>
+          <ul>
+            <li>Brand partnerships with adult product lines and lifestyle companies</li>
+            <li>Financial planning services specializing in adult industry needs</li>
+            <li>Industry networking events with producers and directors</li>
+            <li>Skill development workshops (acting, lighting, personal branding)</li>
+            <li>Transition planning for career evolution beyond performing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card" style="padding: 3rem;">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 2.5rem;">Our Simple Process</h2>
+        
+        <div style="display: grid; gap: 1.5rem;">
+          <div class="process-step animate">
+            <div class="process-number">1</div>
+            <div class="process-content">
+              <h3>Profile Creation</h3>
+              <p>Complete our confidential talent profile including your experience level, boundaries, and career goals (15 mins). All information is encrypted and protected.</p>
+            </div>
+          </div>
+          
+          <div class="process-step animate delay-1">
+            <div class="process-number">2</div>
+            <div class="process-content">
+              <h3>Verification</h3>
+              <p>Secure ID and age verification through our encrypted portal. Typically completed within 2 business days. We never store sensitive documents.</p>
+            </div>
+          </div>
+          
+          <div class="process-step animate delay-1">
+            <div class="process-number">3</div>
+            <div class="process-content">
+              <h3>Project Matching</h3>
+              <p>Our algorithm matches you with suitable projects based on your profile. You'll receive detailed briefs including compensation, duration, and creative requirements.</p>
+            </div>
+          </div>
+          
+          <div class="process-step animate delay-2">
+            <div class="process-number">4</div>
+            <div class="process-content">
+              <h3>Booking</h3>
+              <p>We handle all logistics including travel arrangements, contracts, and payment terms. You receive a comprehensive production packet 72 hours before shoot.</p>
+            </div>
+          </div>
+          
+          <div class="process-step animate delay-2">
+            <div class="process-number">5</div>
+            <div class="process-content">
+              <h3>Performance</h3>
+              <p>Work with confidence knowing all agreements are secured. Payment is processed within 3 business days of project completion via your preferred method.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials">
+      <h2 class="section-title">Talent Stories</h2>
+      <div class="grid">
+        <div class="card animate">
+          <div class="testimonial">
+            <p>XSplashed completely changed my career trajectory. Within six months of joining, I was working with premium studios that pay 40% more than my previous rates. The professional environment they cultivate makes all the difference - I finally feel respected as a performer.</p>
+            <span>– Sophia K., 5+ year performer</span>
+          </div>
+        </div>
+        
+        <div class="card animate delay-1">
+          <div class="testimonial">
+            <p>Coming from fashion modeling, I was nervous about transitioning to adult work. XSplashed educated me about the industry while strictly respecting my boundaries. They matched me with tasteful projects that aligned with my brand, and their contracts ensured I maintained control over my image.</p>
+            <span>– Marcus T., Former fashion model</span>
+          </div>
+        </div>
+        
+        <div class="card animate delay-2">
+          <div class="testimonial">
+            <p>After eight years in the industry, I thought I'd never be able to save for retirement. XSplashed connected me with their financial advisor who specializes in adult performers. Between the better rates and smart planning, I'm now on track to retire by 40 with investments growing every month.</p>
+            <span>– Alicia R., 8+ year veteran</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="apply">
+      <h2 class="section-title">FAQs</h2>
+      
+      <div class="faq-item animate">
+        <h3>What are the requirements to join?</h3>
+        <p>You must be 21+ (or legal age in your jurisdiction), pass our ID verification process, and have no active exclusivity contracts with other agencies or studios. We welcome performers at all experience levels, from newcomers to established professionals.</p>
+      </div>
+      
+      <div class="faq-item animate delay-1">
+        <h3>How do you ensure performer safety?</h3>
+        <p>Our 5-point safety protocol includes: 1) Studio reputation vetting through our industry network, 2) Mandatory 48-hour testing for all productions, 3) On-set intimacy coordinators available upon request, 4) Clear boundaries documentation in all contracts, and 5) Anonymous reporting system for any concerns.</p>
+      </div>
+      
+      <div class="faq-item animate delay-1">
+        <h3>What's your commission structure?</h3>
+        <p>We charge a transparent 15% commission on all bookings. Unlike some agencies, you see the full studio offer before accepting any project. Our commission covers continuous marketing, contract negotiation, payment processing, and 24/7 support services.</p>
+      </div>
+      
+      <div class="faq-item animate delay-2">
+        <h3>Can I work anonymously or with face blurred?</h3>
+        <p>Absolutely. We specialize in masked/blurred performances and persona work. Over 30% of our talent maintain complete anonymity through stage names, body-only work, or digital masking. These preferences are documented in your profile and strictly enforced in all contracts.</p>
+      </div>
+
+      <div class="faq-item animate delay-2">
+        <h3>How quickly can I expect bookings after joining?</h3>
+        <p>Most performers receive their first suitable opportunity within 2-3 weeks of profile completion. Timing depends on your location, specialties, and current market demand. Our team will work with you to optimize your profile for faster placement.</p>
+      </div>
+      
+      <div class="cta-box animate delay-2">
+        <h2>Ready to Elevate Your Career?</h2>
+        <p>Join the platform trusted by top performers and premium studios worldwide.</p>
+        <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" class="btn" target="_blank" style="background: white; color: var(--primary-dark);">
+          Begin Application <i class="fas fa-arrow-right"></i>
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">All information is confidential and protected by 256-bit encryption</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p style="margin-bottom: 2rem; opacity: 0.9;">XSplashed represents professional talent for premium productions worldwide. Our mission is to elevate industry standards through ethical representation, fair compensation, and career longevity planning.</p>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/contact">Contact</a>
+        <a href="/faq">FAQ</a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 XSplashed Talent LLC. All rights reserved.<br>
+        XSplashed is an equal opportunity representative.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple animation trigger
+    document.addEventListener('DOMContentLoaded', function() {
+      const animateElements = document.querySelectorAll('.animate');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animateElements.forEach(element => {
+        element.style.opacity = 0;
+        observer.observe(element);
+      });
+    });
+  </script>
+</body>
+</html>
